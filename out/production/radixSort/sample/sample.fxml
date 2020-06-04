@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -8,23 +13,28 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<GridPane fx:id="rootGridPane" alignment="center" hgap="10" prefHeight="600.0" prefWidth="900.0" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane fx:id="rootGridPane" alignment="center" hgap="10" prefHeight="600.0" prefWidth="900.0" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <Button fx:id="sortButton" mnemonicParsing="false" onAction="#radixSort" text="Sort" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@globalICT.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="sortButton" mnemonicParsing="false" onAction="#radixSort" prefHeight="31.0" prefWidth="152.0" text="Sort" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
       <GridPane fx:id="inputArray" gridLinesVisible="true" GridPane.columnIndex="3" GridPane.rowIndex="5">
-        <columnConstraints>
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
+         <columnConstraints>
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-        </rowConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+         </rowConstraints>
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="5" GridPane.columnIndex="1" />
@@ -36,7 +46,7 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="6" GridPane.columnIndex="7" />
          </children>
       </GridPane>
-      <Label prefHeight="18.0" prefWidth="63.0" text="Input " GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <Label prefHeight="18.0" prefWidth="63.0" text="   Input " GridPane.columnIndex="1" GridPane.rowIndex="5" />
       <GridPane fx:id="sortedArray" gridLinesVisible="true" layoutX="91.0" layoutY="250.0" GridPane.columnIndex="3" GridPane.rowIndex="10">
          <columnConstraints>
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
@@ -62,11 +72,11 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="7" />
          </children>
       </GridPane>
-      <Label text="Sorted" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+      <Label text="  Sorted" GridPane.columnIndex="1" GridPane.rowIndex="10" />
       <Label fx:id="radixLabel" alignment="CENTER" text="Radix : " GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-      <Button fx:id="randomButton" mnemonicParsing="false" onAction="#resetRandom" text="Random" GridPane.columnIndex="3" GridPane.rowIndex="12" />
-      <Label fx:id="noticeLabel" alignment="CENTER" contentDisplay="CENTER" text="The array is sorted !" textAlignment="CENTER" visible="false" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-      <TextField fx:id="numOfDigit" promptText="Input number of digit here" GridPane.columnIndex="3" />
+      <Button fx:id="randomButton" mnemonicParsing="false" onAction="#resetRandom" prefHeight="31.0" prefWidth="152.0" text="Random" GridPane.rowIndex="10" />
+      <Label fx:id="noticeLabel" alignment="CENTER" contentDisplay="CENTER" text="The array is sorted !" textAlignment="CENTER" visible="false" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+      <TextField fx:id="numOfDigit" promptText="Input number of digit here" GridPane.columnIndex="3" GridPane.rowIndex="1" />
    </children>
    <columnConstraints>
       <ColumnConstraints />
@@ -75,6 +85,8 @@
       <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
       <RowConstraints />
       <RowConstraints />
       <RowConstraints />
