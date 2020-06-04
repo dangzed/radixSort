@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
@@ -33,7 +34,7 @@ public class Controller {
     @FXML
     void radixSort(ActionEvent event) {
 
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(3), new EventHandler<ActionEvent>() {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), new EventHandler<ActionEvent>() {
             private int radix = 0;
 
             @Override
@@ -64,9 +65,10 @@ public class Controller {
         }));
         timeline.setCycleCount(maxRadix(inputArray));
         timeline.play();
-        Timeline timeline1 = new Timeline(new KeyFrame(Duration.seconds(3 * maxRadix(inputArray)), new EventHandler<ActionEvent>() {
+        Timeline timeline1 = new Timeline(new KeyFrame(Duration.seconds(2 * maxRadix(inputArray)), new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+                noticeLabel.setText("The array is sorted !");
                 noticeLabel.setVisible(true);
             }
         }));
@@ -97,14 +99,21 @@ public class Controller {
 
     @FXML
     void resetRandom(ActionEvent event) {
-        int limit = (int) Math.pow(10, Integer.parseInt(numOfDigit.getText())) - 1;
-        Random random = new Random();
-        for (int i = 0; i < 8; i++) {
-            ((Text) inputArray.getChildren().get(i)).setText(String.valueOf(random.nextInt(limit)));
-            ((Text) sortedArray.getChildren().get(i)).setText("");
+        if (numOfDigit.getText().equals("")) {
+            noticeLabel.setVisible(true);
+            noticeLabel.setText("You forget to input number of digit !");
+            noticeLabel.setTextFill(Color.RED);
+        } else {
+            int limit = (int) Math.pow(10, Integer.parseInt(numOfDigit.getText())) - 1;
+            Random random = new Random();
+            for (int i = 0; i < 8; i++) {
+                ((Text) inputArray.getChildren().get(i)).setText(String.valueOf(random.nextInt(limit)));
+                ((Text) sortedArray.getChildren().get(i)).setText("");
+            }
+            radixLabel.setText("Radix : ");
+            noticeLabel.setVisible(false);
+            noticeLabel.setTextFill(Color.BLACK);
         }
-        radixLabel.setText("Radix : ");
-        noticeLabel.setVisible(false);
     }
 
     public static Text getText(GridPane gridPane, int index) {
